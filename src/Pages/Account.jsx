@@ -1,13 +1,16 @@
 import Footer from "../Component/Footer/Footer.jsx";
-import Navbar from "../Component/Navconnect/Navconnect.jsx";
 import Sidebar from "../Component/Sidebar/Sidebar.jsx";
-import Card from "../Component/Card/Card.jsx";
-import Hero from "../Component/Hero/Hero.jsx";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 export default function Account() {
+  const navigate = useNavigate();
+  const user = localStorage.getItem("User");
+  useEffect(() => {
+    if (!user) navigate("/Login");
+  }, []);
   return (
     <div className="">
-      <Navbar />
-      <Card />
       <Sidebar />
 
       <Footer />

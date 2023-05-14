@@ -1,10 +1,12 @@
 // Pages : 
-import Navbar from './Component/Navbar/Navbar.jsx'
+import Navbar from './Component/Layout/Layout.jsx'
 import Login from "./Pages/Login.jsx"
 import Home from "./Pages/Home.jsx"
 import Register from "./Pages/Register.jsx"
 import Account from "./Pages/Account.jsx"
 import Profile from "./Pages/Profile.jsx"
+import {ToastContainer} from "react-toastify"
+import 'react-toastify/ReactToastify.css'
 
 import { 
   createBrowserRouter, 
@@ -34,6 +36,7 @@ function App() {
     <div className=''>
       <RouterProvider router={router}/>
       {/* <RouterProvider router={router}/> */}
+      <ToastContainer/>
     </div>
     
   );

@@ -5,7 +5,6 @@ import Tab from "../Component/Tab/Tab.jsx";
 export default function Account() {
   return (
     <div className="">
-      <Navbar />
       <Tab />
 
       <Footer />

@@ -70,9 +70,6 @@ const Navconnect = () => {
           </div>
         </div>
       </div>
-      <main>
-        <Outlet />
-      </main>
     </div>
   );
 };
