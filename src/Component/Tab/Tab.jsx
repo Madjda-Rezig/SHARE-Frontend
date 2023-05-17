@@ -1,4 +1,22 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+
 const Tab = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fecthData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/articles");
+        if (response.data) {
+          setData(response.data);
+        }
+      } catch (error) {
+        toast.error(error);
+      }
+    };
+    fecthData();
+  }, []);
   return (
     <div className="overflow-x-auto mt-10 mb-10">
       <table className="table  grid place-items-center">
@@ -87,9 +105,14 @@ const Tab = () => {
             <td>Admin</td>
           </tr>
         </tbody>
-        <button className="btn btn-wide flex items-center mt-16">
-          Modifier
-        </button>
+        <div>
+          <button className="btn btn-wide flex items-center mt-16">
+            Modifier
+          </button>
+          <button className="btn btn-wide flex items-center mt-16">
+            Supprimer
+          </button>
+        </div>
       </table>
     </div>
   );

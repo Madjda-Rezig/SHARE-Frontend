@@ -1,11 +1,35 @@
 import React from "react";
 import avatar from "../../Assets/avatar.jpg";
 import { Outlet } from "react-router-dom";
-
 import { Link } from "react-router-dom";
 import Mode from "../Mode/Mode";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Navconnect = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      const user = localStorage.getItem("User");
+      const token = JSON.parse(user).accessToken;
+      await axios.delete(
+        `http://localhost:5000/authentification/token/${token}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      localStorage.removeItem("User");
+      navigate("/Login");
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+  };
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -64,7 +88,7 @@ const Navconnect = () => {
                 <a>Parametres</a>
               </li>
               <li>
-                <a>Déconnexion</a>
+                <a onClick={handleLogout}>Déconnexion</a>
               </li>
             </ul>
           </div>
