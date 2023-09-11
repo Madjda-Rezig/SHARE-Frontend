@@ -7,7 +7,9 @@ const Tab = () => {
   useEffect(() => {
     const fecthData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/articles");
+        const response = await axios.get(
+          "http://localhost:5000/authentification/login"
+        );
         if (response.data) {
           setData(response.data);
         }
