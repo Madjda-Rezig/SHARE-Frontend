@@ -1,12 +1,10 @@
+# SHARE FRONTEND
+
 ![Alt text](Home.jpg)
-
-# Nom du Projet
-
-[SHARE Frontend]
 
 ## Description
 
-[SHARE est une plateforme web pour permettre aux utilisateurs de partager leurs opinions sur les produits qu'ils ont testés et de discuter de divers sujets.]
+SHARE est une plateforme web pour permettre aux utilisateurs de partager leurs opinions sur les produits qu'ils ont testés et de discuter de divers sujets.
 
 ## Installation
 
